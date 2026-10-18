@@ -1,0 +1,41 @@
+:root {
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --pink: #f186df;
+  --cyan: #37e5ec;
+  --ink: #e4e8f7;
+  --muted: #8b93ad;
+  --panel: #0b1020e6;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; height: 100%; background: #05070d; color: var(--ink); font-family: "Space Grotesk", system-ui, sans-serif; }
+.app { position: relative; height: 100vh; height: 100dvh; overflow: hidden; }
+
+.topbar { position: absolute; z-index: 4000; top: 16px; left: 16px; right: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; pointer-events: none; }
+.topbar > * { pointer-events: auto; }
+.topbar h1 { margin: 0 12px 0 0; font: 700 15px var(--mono); letter-spacing: 4px; color: #ffd6f6; text-shadow: 0 0 14px var(--pink); }
+.topbar h1 span { color: var(--pink); }
+.chips { display: flex; gap: 6px; }
+.chips button, .toggle { cursor: pointer; font: 600 10.5px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); background: var(--panel); border: 1px solid #f186df55; padding: 8px 12px; }
+.chips button.on, .toggle.on { border-color: var(--pink); color: #ffd6f6; box-shadow: 0 0 14px #f186df55; }
+.zoom { display: flex; align-items: center; gap: 8px; font: 10.5px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); background: var(--panel); border: 1px solid #37e5ec44; padding: 6px 10px; }
+.zoom input { accent-color: var(--cyan); width: 110px; }
+
+.panel { position: absolute; z-index: 4000; top: 72px; left: 16px; width: min(300px, calc(100vw - 32px)); padding: 18px 18px 16px; background: var(--panel); border: 1px solid color-mix(in srgb, var(--node) 60%, transparent); border-left: 3px solid var(--node); box-shadow: 0 0 30px color-mix(in srgb, var(--node) 25%, transparent); }
+.panel small { font: 10px var(--mono); letter-spacing: 2px; color: var(--node); }
+.panel h2 { margin: 4px 0 10px; font-size: 22px; }
+.panel .big { margin: 0; font: 700 34px var(--mono); color: var(--node); text-shadow: 0 0 16px color-mix(in srgb, var(--node) 60%, transparent); }
+.panel .unit { margin: 2px 0 12px; font: 11px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+.panel .hint { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.panel .close { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: 0; color: var(--muted); font-size: 14px; }
+
+.credit { position: absolute; z-index: 3500; left: 16px; bottom: 14px; font: 10.5px var(--mono); color: #5f6884; letter-spacing: 1px; }
+.credit a { color: var(--cyan); }
+.no-webgl { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; font: 12px var(--mono); color: var(--muted); }
+
+/* Teléfonos: los botones de juego bajan y la ayuda se oculta. */
+@media (max-width: 640px) {
+  .city-tools { right: 16px; bottom: 48px; }
+  .city-help { display: none; }
+  .zoom input { width: 80px; }
+}

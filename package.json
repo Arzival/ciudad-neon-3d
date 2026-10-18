@@ -1,0 +1,25 @@
+{
+  "name": "ciudad-neon-3d",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Ciudad cyberpunk 3D interactiva con three.js y React: edificios con shaders, tráfico aéreo, ondas, explosión y torres que se arrastran.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.181.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/three": "^0.181.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

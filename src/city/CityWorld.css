@@ -1,0 +1,31 @@
+/* Mundo 3D: lienzo, viñeta, etiquetas HTML que siguen a los edificios y botones de juego. */
+.city-world { position: absolute; inset: 0; overflow: hidden; z-index: 0; isolation: isolate; }
+.city-canvas, .city-canvas canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; cursor: grab; }
+.city-canvas canvas:active { cursor: grabbing; }
+.city-labels { position: absolute; inset: 0; pointer-events: none; }
+.city-label { position: absolute; left: 0; top: 0; will-change: transform, opacity; text-align: center; color: #e4e8f7; font-family: "Space Grotesk", sans-serif; text-shadow: 0 0 10px #09091acc, 0 0 2px #000; white-space: nowrap; }
+.city-label.node { pointer-events: auto; cursor: pointer; display: flex; align-items: center; gap: 7px; padding: 5px 10px 5px 0; margin-top: 30px; border: 1px solid color-mix(in srgb, var(--node) 50%, transparent); border-radius: 2px; background: #0b1020e0; color: #e4e8f7; font: 10.5px var(--mono); letter-spacing: 0.5px; text-transform: uppercase; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+.city-label.node::before { content: ""; align-self: stretch; width: 2px; background: var(--node); margin-right: 3px; }
+.city-label.node i { width: 6px; height: 6px; border-radius: 50%; background: var(--node); box-shadow: 0 0 8px var(--node); }
+.city-label.node em { font-style: normal; text-transform: none; color: var(--node); opacity: 0.9; }
+.city-label.node.up { margin-top: -30px; }
+.city-label.node:hover, .city-label.node.selected { border-color: var(--node); box-shadow: 0 0 18px color-mix(in srgb, var(--node) 45%, transparent); }
+.city-label.node.faded { opacity: 0.3 !important; }
+.city-label.node.nodata span { color: #8b8699; }
+
+.city-tools { position: absolute; right: 28px; bottom: 120px; z-index: 3000; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; pointer-events: none; }
+.city-tools button { pointer-events: auto; cursor: pointer; font: 600 10.5px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: #e4e8f7; background: #0b1020e6; border: 1px solid #f186df66; padding: 9px 14px; clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); transition: box-shadow 0.2s, border-color 0.2s, color 0.2s; }
+.city-tools button:hover { border-color: #f186df; color: #ffd6f6; box-shadow: 0 0 18px #f186df55; }
+.city-boom span { color: #f186df; margin-right: 4px; text-shadow: 0 0 8px #f186df; }
+.city-reset { border-color: #37e5ec55 !important; font-size: 9.5px !important; padding: 6px 10px !important; }
+.city-help { list-style: none; margin: 4px 0 0; padding: 10px 12px; background: #0b102099; border-left: 2px solid #37e5ec; font: 10px var(--mono); color: #8b93ad; line-height: 1.75; text-align: right; }
+.city-help b { color: #37e5ec; font-weight: 600; }
+@media (max-height: 820px) { .city-help { display: none; } }
+.city-label.node { touch-action: none; user-select: none; }
+.city-label.node:active { cursor: grabbing; }
+.city3d-world { background: #05070d; }
+.city3d-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 50%, #05070d99 88%, #05070d 100%); }
+.city3d-node { margin-top: -6px !important; }
+.city3d-hub { position: absolute; left: 0; top: 0; display: flex; gap: 8px; align-items: baseline; font: 600 12px var(--mono); letter-spacing: 4px; color: #ffd6f6; text-shadow: 0 0 12px #f186df; pointer-events: none; white-space: nowrap; }
+.city3d-hub span { color: #f186df; }
+.city3d-fallback { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font: 12px var(--mono); letter-spacing: 1.5px; color: #8b93ad; padding: 24px; }
